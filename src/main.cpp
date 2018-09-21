@@ -53,7 +53,7 @@ static uint32_t framebuf[WIDTH * HEIGHT];
 
 int main()
 {
-	SDL_Init(SDL_INIT_VIDEO);
+	SDL_Init(SDL_INIT_EVERYTHING);
 	
 	int i;
 	uint32_t sum;
@@ -122,7 +122,7 @@ int main()
 			SDL_RenderCopy(renderer, texture, NULL, NULL);
 			SDL_RenderPresent(renderer);
 
-			//SDL_Delay(1000 / FPS);
+			SDL_Delay(1000 / FPS);
 	}
 
 	SDL_DestroyTexture(texture);
