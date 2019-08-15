@@ -14,13 +14,11 @@ include $(DEVKITPRO)/wut/share/wut_rules
 # BUILD is the directory where object files & intermediate files will be placed
 # SOURCES is a list of directories containing source code
 # INCLUDES is a list of directories containing header files
-# ROMFS is a folder to generate app's romfs
 #-------------------------------------------------------------------------------
 TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	build
 SOURCES		:=	src
 INCLUDES	:=	
-ROMFS		:=	
 
 #-------------------------------------------------------------------------------
 # options for code generation
@@ -101,16 +99,6 @@ clean:
 #-------------------------------------------------------------------------------
 else
 .PHONY:	all
-
-#-------------------------------------------------------------------------------
-# romfs
-#-------------------------------------------------------------------------------
-include $(PORTLIBS_PATH)/wiiu/share/romfs-wiiu.mk
-CFLAGS		+=	$(ROMFS_CFLAGS)
-CXXFLAGS	+=	$(ROMFS_CFLAGS)
-LIBS		+=	$(ROMFS_LIBS)
-OFILES		+=	$(ROMFS_TARGET)
-#-------------------------------------------------------------------------------
 
 DEPENDS		:=	$(OFILES:.o=.d)
 
